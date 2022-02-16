@@ -2,11 +2,11 @@ package com.example.tehtava6;
 
 public class President {
     private String nimi;
-    private int aloitus;
-    private int lopetus;
+    private String aloitus;
+    private String lopetus;
     private String kuvaus;
 
-    public President (String nimi, int aloitus, int lopetus, String kuvaus) {
+    public President (String nimi, String aloitus, String lopetus, String kuvaus) {
         this.nimi = nimi;
         this.aloitus = aloitus;
         this.lopetus = lopetus;
@@ -17,11 +17,11 @@ public class President {
         return nimi;
     }
 
-    public int getAloitus(){
+    public String getAloitus(){
         return aloitus;
     }
 
-    public int getLopetus(){
+    public String getLopetus(){
         return lopetus;
     }
 

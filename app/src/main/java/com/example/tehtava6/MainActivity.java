@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     public final static String LOPETUSVUOSI = "12";
     public final static String KUVAUS = "kiva";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,43 +25,26 @@ public class MainActivity extends AppCompatActivity {
         Log.i("DBG", Presidents.getInstance().getTiedot().toString());
         ListView lv = findViewById(R.id.lista);
 
-
         lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Presidents.getInstance().getNimet()));
-        //lv.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, Presidents.getInstance().getTiedot());
-
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.i("DBG", "Alkio " + l + " valittu");
 
-
                 Intent intent = new Intent(MainActivity.this, PresidentClicked.class);
 
-                President nimiString = 
+                President nimiString = Presidents.getInstance().getTiedot().get(i);
 
-                intent.putExtra(NIMI, nimiString);
-                intent.putExtra(ALOITUSVUOSI, aloitus);
-                intent.putExtra(LOPETUSVUOSI, lopetus);
-                intent.putExtra(KUVAUS, kuvaus);
+                intent.putExtra(NIMI, nimiString.getNimi());
+                intent.putExtra(ALOITUSVUOSI, nimiString.getAloitus());
+                intent.putExtra(LOPETUSVUOSI, nimiString.getLopetus());
+                intent.putExtra(KUVAUS, nimiString.getKuvaus());
 
                 startActivity(intent);
-
             }
         });
 
     }
 
-
-
-/*
-       // EditText editText = (EditText) findViewById(R.id.editTextTextPersonName);
-       // String name = editText.getText().toString();
-
-        String nimi = "nimi";
-        String aloitus = "00";
-        String kuvaus = "moi";
-        String lopetus = "00";
-
-*/
 
 }

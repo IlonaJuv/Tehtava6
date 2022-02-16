@@ -23,21 +23,21 @@ public class PresidentClicked extends AppCompatActivity {
         Intent intent = getIntent();
 
         String nimi = intent.getStringExtra(MainActivity.NIMI);
-        String aloitus = intent.getStringExtra(MainActivity.ALOITUSVUOSI);
-        String lopetus = intent.getStringExtra(MainActivity.LOPETUSVUOSI);
-        String kuvaus = intent.getStringExtra(MainActivity.KUVAUS);
-
-
-        TextView aloitusText = findViewById(R.id.textAloitus);
-        TextView lopetusText = findViewById(R.id.textLopetus);
         TextView nimiText = findViewById(R.id.textViewNimi);
-        TextView kuvausText = findViewById(R.id.textKuvaus);
-
-
         nimiText.setText(nimi);
-        lopetusText.setText(lopetus);
+
+        String aloitus = intent.getStringExtra(MainActivity.ALOITUSVUOSI);
+        TextView aloitusText = findViewById(R.id.textAloitus);
         aloitusText.setText(aloitus);
+
+        String lopetus = intent.getStringExtra(MainActivity.LOPETUSVUOSI);
+        TextView lopetusText = findViewById(R.id.textLopetus);
+        lopetusText.setText(lopetus);
+
+        String kuvaus = intent.getStringExtra(MainActivity.KUVAUS);
+        TextView kuvausText = findViewById(R.id.textKuvaus);
         kuvausText.setText(kuvaus);
+
 
     }
 
